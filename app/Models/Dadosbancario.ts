@@ -1,0 +1,28 @@
+import { DateTime } from 'luxon'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+
+export default class Dadosbancario extends BaseModel {
+  @column({ isPrimary: true })
+  public id: number
+
+  @column()
+  public agencia: number
+
+  @column()
+  public tipo: string
+
+  @column()
+  public banco: string
+
+  @column()
+  public nconta: number
+
+  @column()
+  public investidorId: number
+
+  @column.dateTime({ autoCreate: true })
+  public createdAt: DateTime
+
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  public updatedAt: DateTime
+}
