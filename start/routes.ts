@@ -20,13 +20,22 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('/investidor', 'InvestidorsController').apiOnly()
-Route.resource('/acao', 'AcaosController').apiOnly()
-Route.resource('/tesouro', 'TesourosController').apiOnly()
-Route.resource('/calendario', 'CalendariosController').apiOnly()
-Route.resource('/dadosbancario', 'DadosbancariosController').apiOnly()
-Route.resource('/favorito', 'FavoritosController').apiOnly()
-Route.resource('/rentabilidade', 'RentabilidadesController').apiOnly()
-Route.resource('/comparacao', 'ComparacaosController').apiOnly()
-Route.resource('/calendarioR', 'CalendariorentabilidadesController').apiOnly()
-Route.resource('/calendarioC', 'CalendariocomparacaosController').apiOnly()
+Route.group(() => { Route.resource('/users', 'UsersController') }).middleware('auth')
+Route.post('/login', 'UsersController.login')
+
+Route.group(() => {
+    Route.resource('/investidor', 'InvestidorsController').apiOnly()
+    Route.resource('/acao', 'AcaosController').apiOnly()
+    Route.resource('/tesouro', 'TesourosController').apiOnly()
+    Route.resource('/favorito', 'FavoritosController').apiOnly()
+    Route.resource('/rentabilidade', 'RentabilidadesController').apiOnly()
+    Route.resource('/comparacao', 'ComparacaosController').apiOnly()
+    Route.resource('/calendarioR', 'CalendariorentabilidadesController').apiOnly()
+    Route.resource('/calendarioC', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/comparacaoacao', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/comparacaotesouro', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/favoritoacao', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/favoritotesouro', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/rentabilidadeacao', 'CalendariocomparacaosController').apiOnly()
+    Route.resource('/rentabilidadetesouro', 'CalendariocomparacaosController').apiOnly()
+}).middleware('auth')

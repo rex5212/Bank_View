@@ -1,5 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import Favorito from './Favorito'
+import Comparacao from './Comparacao'
+import Rentabilidade from './Rentabilidade'
 
 export default class Tesouro extends BaseModel {
   @column({ isPrimary: true })
@@ -19,4 +22,14 @@ export default class Tesouro extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @manyToMany(() => Rentabilidade, { pivotTable: 'rentabilidade_tesouros' })
+  public rentabilidades: ManyToMany <typeof Rentabilidade>
+  
+  @manyToMany(() => Comparacao, { pivotTable: 'comparacao_tesouros' })
+  public comparacoes: ManyToMany <typeof Comparacao>
+  
+  @manyToMany(() => Favorito, { pivotTable: 'favorito_tesouros' })
+  public favoritos: ManyToMany <typeof Favorito>
+
 }
