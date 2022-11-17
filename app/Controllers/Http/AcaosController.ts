@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Acao from "App/Models/Acao"
+import AcaoValidator from "App/Validators/AcaoValidator"
 
 export default class AcaosController {
         
@@ -11,7 +12,7 @@ export default class AcaosController {
     }
  
     async store({request}){
-        const dados = await request.validate()
+        const dados = await request.validate(AcaoValidator)
         return Acao.create(dados)        
     }
  

@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Tesouro from "App/Models/Tesouro"
+import TesouroValidator from "App/Validators/TesouroValidator"
 
 export default class TesourosController {        
         
@@ -11,7 +12,7 @@ export default class TesourosController {
     }
  
     async store({request}){
-        const dados = await request.validate()
+        const dados = await request.validate(TesouroValidator)
         return Tesouro.create(dados)        
     }
  
