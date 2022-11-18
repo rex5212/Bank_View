@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import FavoritoTesouro from "App/Models/FavoritoTesouro"
+import FavoritoTesouroValidator from "App/Validators/FavoritoTesouroValidator"
 
 export default class FavoritoTesourosController {        
         
@@ -10,7 +11,7 @@ export default class FavoritoTesourosController {
     }
  
     async store({request}){
-        const dados = await request.validate()
+        const dados = await request.validate(FavoritoTesouroValidator)
         return FavoritoTesouro.create(dados)        
     }
  
