@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Investidor from "App/Models/Investidor"
+import InvestidorValidator from "App/Validators/InvestidorValidator"
 
 export default class InvestidorsController {        
         
@@ -11,7 +12,7 @@ export default class InvestidorsController {
     }
  
     async store({request}){
-        const dados = await request.validate()
+        const dados = await request.validate(InvestidorValidator)
         return Investidor.create(dados)        
     }
  

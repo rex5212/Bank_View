@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import RentabilidadeTesouro from "App/Models/RentabilidadeTesouro"
+import RentabilidadeTesouroValidator from "App/Validators/RentabilidadeTesouroValidator"
 
 export default class RentabilidadeTesourosController {
             
@@ -10,7 +11,7 @@ export default class RentabilidadeTesourosController {
     }
  
     async store({request}){
-        const dados = await request.validate()
+        const dados = await request.validate(RentabilidadeTesouroValidator)
         return RentabilidadeTesouro.create(dados)        
     }
  
