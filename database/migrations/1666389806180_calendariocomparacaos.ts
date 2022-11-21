@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.integer('comparacao_id').unsigned().references('id').inTable('comparacaos').notNullable()
       table.date('tempoinit').notNullable()
-      table.date('tempoend').notNullable()
+      table.date('tempoend')
 
       
       /**

@@ -10,22 +10,10 @@ export default class Calendariorentabilidade extends BaseModel {
   public rentabilidadeId: number
 
   @column()
-  public diainit: number
+  public tempoinit: Date
 
   @column()
-  public mesinit: number
-
-  @column()
-  public anoinit: number
-
-  @column()
-  public diaend: number
-
-  @column()
-  public mesend: number
-
-  @column()
-  public anoend: number
+  public tempoend: Date
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

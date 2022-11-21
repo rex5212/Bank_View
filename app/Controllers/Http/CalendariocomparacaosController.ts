@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Calendariocomparacao from "App/Models/Calendariocomparacao"
+import CalendarioComparacaoUpdateValidator from "App/Validators/CalendarioComparacaoUpdateValidator"
 import CalendarioComparacaoValidator from "App/Validators/CalendarioComparacaoValidator"
 
 export default class CalendariocomparacaosController {        
@@ -13,6 +14,7 @@ export default class CalendariocomparacaosController {
  
     async store({request}){
         const dados = await request.validate(CalendarioComparacaoValidator)
+        /** {comparacaoId} = number, {tempoinit, tempoend} = date */
         return Calendariocomparacao.create(dados)        
     }
  
@@ -24,7 +26,7 @@ export default class CalendariocomparacaosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(CalendarioComparacaoUpdateValidator)
         const updat = await Calendariocomparacao.findOrFail(id)
         updat.merge(dados).save()
         return updat

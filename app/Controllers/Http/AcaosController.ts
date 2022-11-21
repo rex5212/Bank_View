@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Acao from "App/Models/Acao"
+import AcaoUpdateValidator from "App/Validators/AcaoUpdateValidator"
 import AcaoValidator from "App/Validators/AcaoValidator"
 
 export default class AcaosController {
@@ -13,6 +14,7 @@ export default class AcaosController {
  
     async store({request}){
         const dados = await request.validate(AcaoValidator)
+        /** {nome, empresa} = string, {preco} = number */
         return Acao.create(dados)        
     }
  
@@ -24,7 +26,7 @@ export default class AcaosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(AcaoUpdateValidator)
         const updat = await Acao.findOrFail(id)
         updat.merge(dados).save()
         return updat

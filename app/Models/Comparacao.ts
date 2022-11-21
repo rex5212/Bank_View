@@ -10,6 +10,9 @@ export default class Comparacao extends BaseModel {
   public id: number
 
   @column()
+  public nome: string
+
+  @column()
   public investidorId: number
 
   @column.dateTime({ autoCreate: true })

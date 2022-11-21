@@ -1,24 +1,24 @@
 import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class AcaoValidator {
+export default class AcaoUpdateValidator {
   constructor(protected ctx: HttpContextContract) {}
 
-
+ 
   public schema = schema.create({
 
-    nome: schema.string([
+    nome: schema.string.optional([
       rules.maxLength(50),
       rules.minLength(5),
       rules.unique({ table: 'acaos', column: 'nome'})
     ]),
 
-    preco: schema.number([
+    preco: schema.number.optional([
       rules.unsigned(),
       rules.range(0.01, 9999)
     ]),
 
-    empresa: schema.string([
+    empresa: schema.string.optional([
       rules.maxLength(120),
       rules.minLength(7)
     ])
@@ -34,7 +34,6 @@ export default class AcaoValidator {
     unique : 'Cada Ação possui um nome diferente ou numero diferente',
     unsigned : 'Não existe um preço negativo',
     range : 'A Ação tem um limite de 0.01 e 9999',
-    required : 'Os campos são obrigatorios para a criação da Ação' 
   }
   
 }

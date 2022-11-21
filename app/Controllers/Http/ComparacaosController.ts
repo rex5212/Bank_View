@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Comparacao from "App/Models/Comparacao"
+import ComparacaoUpdateValidator from "App/Validators/ComparacaoUpdateValidator"
 import ComparacaoValidator from "App/Validators/ComparacaoValidator"
 
 export default class ComparacaosController {        
@@ -14,6 +15,7 @@ export default class ComparacaosController {
  
     async store({request}){
         const dados = await request.validate(ComparacaoValidator)
+        /** {nome} = string, {investidorId} = number */
         return Comparacao.create(dados)        
     }
  
@@ -25,7 +27,7 @@ export default class ComparacaosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(ComparacaoUpdateValidator)
         const updat = await Comparacao.findOrFail(id)
         updat.merge(dados).save()
         return updat

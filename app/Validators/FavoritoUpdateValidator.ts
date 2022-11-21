@@ -1,7 +1,7 @@
-import { schema, CustomMessages, rules  } from '@ioc:Adonis/Core/Validator'
+import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class FavoritoValidator {
+export default class FavoritoUpdateValidator {
   constructor(protected ctx: HttpContextContract) {}
 
 
@@ -11,7 +11,7 @@ export default class FavoritoValidator {
       rules.maxLength(25)
     ]),
 
-    investidorId: schema.number([
+    investidorId: schema.number.optional([
       rules.exists({ table: 'investidors', column: 'id'}), 
       rules.unsigned()
     ])
@@ -22,7 +22,6 @@ export default class FavoritoValidator {
     exists : 'Esse conjunto de informação que esta referenciando não existe, coloque um existente',
     unsigned :  'Não possui conjunto de informação, que esta referenciando, negativo, coloque um existente',
     maxLength : 'Nome muito grande para pode simplifica',
-    required : 'Os campos são obrigatorios para a criação do seu favorito'
   }
 
 }

@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import FavoritoTesouro from "App/Models/FavoritoTesouro"
+import FavoritoTesouroUpdateValidator from "App/Validators/FavoritoTesouroUpdateValidator"
 import FavoritoTesouroValidator from "App/Validators/FavoritoTesouroValidator"
 
 export default class FavoritoTesourosController {        
@@ -12,6 +13,7 @@ export default class FavoritoTesourosController {
  
     async store({request}){
         const dados = await request.validate(FavoritoTesouroValidator)
+        /** {tesouroId, favoritoId} = number */
         return FavoritoTesouro.create(dados)        
     }
  
@@ -23,7 +25,7 @@ export default class FavoritoTesourosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(FavoritoTesouroUpdateValidator)
         const updat = await FavoritoTesouro.findOrFail(id)
         updat.merge(dados).save()
         return updat

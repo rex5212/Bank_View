@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import RentabilidadeAcao from "App/Models/RentabilidadeAcao"
+import RentabilidadeAcaoUpdateValidator from "App/Validators/RentabilidadeAcaoUpdateValidator"
 import RentabilidadeAcaoValidator from "App/Validators/RentabilidadeAcaoValidator"
 
 export default class RentabilidadeAcaosController {
@@ -23,7 +24,7 @@ export default class RentabilidadeAcaosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(RentabilidadeAcaoUpdateValidator)
         const updat = await RentabilidadeAcao.findOrFail(id)
         updat.merge(dados).save()
         return updat

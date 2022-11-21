@@ -19,6 +19,7 @@ export default class UsersController {
     async login ( {request, auth} ){
         
         const {email, password} = request.body()
+        /** validate(UserValidator) não reconhece o argon */
         const token = await auth.use('api').attempt(email, password)
         return token
 

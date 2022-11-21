@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import ComparacaoTesouro from "App/Models/ComparacaoTesouro"
+import ComparacaoTesouroUpdateValidator from "App/Validators/ComparacaoTesouroUpdateValidator"
 import ComparacaoTesouroValidator from "App/Validators/ComparacaoTesouroValidator"
 
 export default class ComparacaoTesourosController {
@@ -12,6 +13,7 @@ export default class ComparacaoTesourosController {
  
     async store({request}){
         const dados = await request.validate(ComparacaoTesouroValidator)
+        /** {tesouroId, comparacaoId} = number */
         return ComparacaoTesouro.create(dados)        
     }
  
@@ -23,7 +25,7 @@ export default class ComparacaoTesourosController {
  
     async update({request}){        
         const id = request.param("id")
-        const dados = await request.validate()
+        const dados = await request.validate(ComparacaoTesouroUpdateValidator)
         const updat = await ComparacaoTesouro.findOrFail(id)
         updat.merge(dados).save()
         return updat
