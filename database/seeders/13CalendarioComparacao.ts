@@ -5,6 +5,9 @@ export default class extends BaseSeeder {
   public async run () {
     await Calendariocomparacao.createMany([
       {comparacaoId: 1, tempoinit: new Date(12,7,2002), tempoend: new Date(8,7,2015)},
+      {comparacaoId: 2, tempoinit: new Date(12,7,2002), tempoend: new Date(8,7,2015)},
+      {comparacaoId: 3, tempoinit: new Date(12,7,2002), tempoend: new Date(8,7,2015)},
+      {comparacaoId: 4, tempoinit: new Date(12,7,2002), tempoend: new Date(8,7,2015)},
     ])
   }
 }

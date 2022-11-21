@@ -20,7 +20,7 @@ export default class AcaoValidator {
 
     empresa: schema.string([
       rules.maxLength(120),
-      rules.minLength(7)
+      rules.minLength(3)
     ])
     
   })
