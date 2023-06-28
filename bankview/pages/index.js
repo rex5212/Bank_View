@@ -8,12 +8,15 @@ import BottomBg from '../components/Background/BottomBg'
 import TopBg from '../components/Background/TopBg'
 import Logo from '../components/Logo/Logo'
 import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
 
 
 const index = () => {
 
+  const { push, query } = useRouter()
+
   // const [bolsa, setBolsa] = useState([])
-  const [isvisible, setIsvisible] = useState(true)
+  const [isvisible, setIsvisible] = useState(false)
   const { register, handleSubmit } = useForm()
 
   // useEffect(() => {
@@ -21,7 +24,7 @@ const index = () => {
   // }, [])
 
   function loga(dados) {
-
+    push('/menu')
   }
 
   function visible() {
@@ -36,15 +39,20 @@ const index = () => {
   // }
 
   return (
-    <div className='d-flex align-items-center justify-content-center'>
+    <div className='d-flex align-items-center justify-content-center' >
       <TopBg />
-      {isvisible == false ? (<Logo onClick={visible()} />)
-        : (
+      {isvisible == false ? (
+        <div className='pt-5'>
+          <div class="px-24 py-12" onClick={() => (visible())}>
+            <Logo />
+          </div>
+        </div>
+      ): (
           <div className='pt-5'>
             <div class="rounded-xl bg-gray-800 bg-opacity-50 px-24 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
               <div class="text-white">
                 <div class="mb-8 flex flex-col items-center">
-                  <div className='py-10'>
+                  <div className='py-10' >
                     <Logo />
                   </div>
                   <h1 class="mb-2 text-5xl text-[#000AFF]">Bank View</h1>
@@ -70,7 +78,7 @@ const index = () => {
               </div>
             </div>
           </div>
-          )}
+        )}
       <BottomBg />
     </div>
   )
