@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BaseBar = (props) => {
+const BaseDiv = (props) => {
     return (
         <div className='border border-primary rounded-5 border-3 m-4'>
             <div className='py-4 px-1'>
@@ -10,4 +10,4 @@ const BaseBar = (props) => {
     )
 }
 
-export default BaseBar
+export default BaseDiv

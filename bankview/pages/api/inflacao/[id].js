@@ -1,4 +1,4 @@
-import { db } from "@/services/firebase"
+import { db } from "../../../services/firebase"
 import { child, get, ref, remove, set, update } from "firebase/database"
 import { v4 } from "uuid"
 

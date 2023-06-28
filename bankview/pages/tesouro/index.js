@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+import Maintenance from '../../components/Maintenance/Maintenance'
+import BaseBar from '../../components/BaseBar'
 
 export const index = () => {
 
@@ -16,7 +18,9 @@ export const index = () => {
   }
 
   return (
-    <div>index</div>
+    <BaseBar>
+      <Maintenance/>
+    </BaseBar>
   )
 }
 
