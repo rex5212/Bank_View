@@ -3,6 +3,21 @@
 @tailwind utilities;
 @tailwind register;
 
+::-webkit-scrollbar {
+    width: 1px;
+    height: 4px;
+}
+  
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #000AFF;
+    border-radius: 25px;
+}
+
 .table-transparent * {
   background-color: transparent !important;
   border-color: transparent !important;

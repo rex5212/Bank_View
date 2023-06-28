@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
     if (req.method == 'GET') {
 
-        get(child(ref(db), 'disciplinas')).then(snapshot=>{
+        get(child(ref(db), 'bolsa')).then(snapshot=>{
             const retorno = []
             snapshot.forEach(item=>{
                 retorno.push(item.val())
@@ -19,18 +19,8 @@ export default function handler(req, res) {
         const dados = req.body
         dados.id = id
 
-        set(ref(db, 'disciplinas/' + id), dados)
+        set(ref(db, 'bolsa/' + id), dados)
         res.status(200).json(dados)
-    } else if (req.method == 'PUT' || req.method == 'PATCH') {
-            
-        const dados = req.body
-
-        update(ref(db, 'disciplinas/' + id), dados)
-        res.status(200).json(dados)
-    
-    } else if (req.method == 'DELETE') {
-        remove(ref(db, 'disciplinas/' + id))
-        res.status(200).json(id)
     }
 
 }

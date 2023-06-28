@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import BaseBar from '../components/BaseBar'
-import BasicDiv from '../components/BasicDiv'
 import axios from "axios"
 import { Col, Row, Table } from 'react-bootstrap'
 import Bgv1 from '../components/Background/Bgv1'
-import BottomBg from '../components/Background/BottomBg'
-import TopBg from '../components/Background/TopBg'
 import Logo from '../components/Logo/Logo'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
+import BaseBg from '../components/BaseBg'
 
 
 const index = () => {
@@ -39,15 +36,15 @@ const index = () => {
   // }
 
   return (
-    <div className='d-flex align-items-center justify-content-center' >
-      <TopBg />
-      {isvisible == false ? (
-        <div className='pt-5'>
-          <div class="px-24 py-12" onClick={() => (visible())}>
-            <Logo />
+    <BaseBg>
+      <div className='d-flex align-items-center justify-content-center'>
+        {isvisible == false ? (
+          <div className='pt-5 ' onClick={() => (visible())}>
+            <div class="px-24 py-12">
+              <Logo />
+            </div>
           </div>
-        </div>
-      ): (
+        ) : (
           <div className='pt-5'>
             <div class="rounded-xl bg-gray-800 bg-opacity-50 px-24 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
               <div class="text-white">
@@ -79,8 +76,8 @@ const index = () => {
             </div>
           </div>
         )}
-      <BottomBg />
-    </div>
+      </div>
+    </BaseBg>
   )
 }
 
