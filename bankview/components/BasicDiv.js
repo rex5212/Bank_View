@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BaseDiv = (props) => {
+const BasicDiv = (props) => {
     return (
         <div className='border border-primary rounded-5 border-3 m-4'>
             <div className='py-4 px-1'>
@@ -10,4 +10,4 @@ const BaseDiv = (props) => {
     )
 }
 
-export default BaseDiv
+export default BasicDiv
