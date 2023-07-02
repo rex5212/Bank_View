@@ -20,6 +20,18 @@ export const index = () => {
     })
   }
 
+  function excluir(id){
+    if(confirm('Deseja realmente excluir o registro?')){
+      axios.delete('/api/disciplinas/' + id)
+      getAll()
+    }
+  }
+
+  function novo(dados) {
+    axios.post('/api/disciplinas', dados)
+    push('/disciplinas')
+  }
+
   return (
     <BaseBar>
       <BasicDiv>
@@ -27,15 +39,27 @@ export const index = () => {
           <thead>
             <tr>
               <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
-                Ação
+                Data
               </th>
               <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
-                Variação
+                Estrangeiro
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Institucional
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Pessoa física
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Inst. Financeira
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Outros
               </th>
             </tr>
           </thead>
           <tbody class="divide-y opacity-100 border-[#000AFF]">
-            <Maintenance/>
+            {}
           </tbody>
         </BasicTable>
       </BasicDiv>
@@ -44,7 +68,16 @@ export const index = () => {
           <thead>
             <tr>
               <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
-                Ação
+                Código
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Nome
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Volume
+              </th>
+              <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                Última (R$)
               </th>
               <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                 Variação
@@ -52,7 +85,7 @@ export const index = () => {
             </tr>
           </thead>
           <tbody class="divide-y opacity-100 border-[#000AFF]">
-            <Maintenance/>
+            {}
           </tbody>
         </BasicTable>
       </BasicDiv>
