@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
     if (req.method == 'GET') {
 
-        get(child(ref(db), 'bolsa')).then(snapshot=>{
+        get(child(ref(db), 'tesouro')).then(snapshot=>{
             const retorno = []
             snapshot.forEach(item=>{
                 retorno.push(item.val())
@@ -19,7 +19,7 @@ export default function handler(req, res) {
         const dados = req.body
         dados.id = id
 
-        set(ref(db, 'bolsa/' + id), dados)
+        set(ref(db, 'tesouro/' + id), dados)
         res.status(200).json(dados)
     }
 

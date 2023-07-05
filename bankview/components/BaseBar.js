@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import BottomBar from './Bar/BottomBar'
 import TopBar from './Bar/TopBar'
+import Logo from './Logo/Logo'
+import MenuLogo from './Logo/MenuLogo'
 import { Container, Offcanvas } from 'react-bootstrap'
 import { useRouter } from 'next/router'
 import OffcanvasBar from './Bar/OffcanvasBar'
@@ -59,8 +61,11 @@ const BaseBar = (props) => {
                     </Offcanvas.Header>
                 </div>
                 <Offcanvas.Body className='text-white'>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
+                    <div className='d-flex w-100 py-3 text-white align-items-center justify-content-center'>
+                        <MenuLogo />
+                    </div>
+                    <div class='bg-[#000AFF] py-3 mx-5'>
+                    </div>
                 </Offcanvas.Body>
                 <div className='d-flex fixed-bottom-end w-100 text-white align-items-center justify-content-center'>
                     <OffcanvasBar className='fixed-bottom' />
