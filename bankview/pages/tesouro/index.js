@@ -32,6 +32,17 @@ export const index = () => {
     push('/disciplinas')
   }
 
+  function newTesouro(dados) {
+    axios.post('/api/tesouro', dados)
+    reset({
+      indice: "",
+      orgao: "",
+      valor: "",
+      data: ""
+    })
+    setMinflacao(!minflacao)
+  }
+
   return (
     <BaseBar>
       <Row>
@@ -39,19 +50,19 @@ export const index = () => {
           <BasicTable>
             <thead >
               <tr>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                   Nome
                 </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                   Rentabilidade anual (%)	
                 </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                   Investimento mínimo (R$)	
                 </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                   Preço unitário (R$)	
                 </th>
-                <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                   Vencimento
                 </th>
               </tr>
