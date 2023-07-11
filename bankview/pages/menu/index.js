@@ -33,9 +33,14 @@ const index = () => {
 
   function excluir(id) {
     if (confirm('Deseja realmente excluir o registro?')) {
-      axios.delete('/api/disciplinas/' + id)
+        axios.put(`api/noticia/${dados.id}`)
       getAll()
     }
+  }
+
+  function modify(dados){
+    // axios.put(`api/noticia/${dados.id}`)
+    console.log(dados)
   }
 
   function newNoticia(dados) {
@@ -162,19 +167,19 @@ const index = () => {
               </thead>
               <tbody class="divide-y opacity-100 border-[#000AFF]">
                 {noticia.map(item => (
-                  <tr>
-                    <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                  <tr class=' hover:bg-[#000AFF]'>
+                    <td scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                       {item.noticia}
-                    </th>
-                    <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                    </td>
+                    <td scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                       {item.data}
-                    </th>
-                    <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                    </td>
+                    <th onClick={() => handleSubmit(modify)} scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                       <Modify />
                     </th>
-                    <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
+                    <td scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                       <Exclude />
-                    </th>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -185,7 +190,7 @@ const index = () => {
 
           <BasicDiv>
             <BasicTable>
-              <thead >
+              <thead>
                 <tr>
                   <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                     Moeda
@@ -200,7 +205,7 @@ const index = () => {
               </thead>
               <tbody class="divide-y opacity-100 border-[#000AFF]" className='scrollbar scrollbar-primary'>
                 {moeda.map(item => (
-                  <tr>
+                  <tr class=' hover:bg-[#000AFF]'>
                     <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                       {item.moeda}
                     </th>
@@ -245,7 +250,7 @@ const index = () => {
             </thead>
             <tbody class="divide-y opacity-100 border-[#000AFF]">
               {inflacao.map(item => (
-                <tr>
+                <tr class=' hover:bg-[#000AFF]'>
                   <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                     {item.indice}
                   </th>
@@ -295,7 +300,7 @@ const index = () => {
             </thead>
             <tbody class="divide-y opacity-100 border-[#000AFF]">
               {juros.map(item => (
-                <tr>
+                <tr class=' hover:bg-[#000AFF]'>
                   <th scope="col" class="py-3 px-2 text-xs font-medium tracking-wider text-left text-white uppercase opacity-100	">
                     {item.indice}
                   </th>

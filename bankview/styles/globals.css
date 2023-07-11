@@ -28,7 +28,7 @@
   border-color: transparent !important;
 }
 
-.table-transparent:hover td {
+.table-transparent:hover th {
   background-color: #000AFF !important;
 }
 

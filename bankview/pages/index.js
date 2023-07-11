@@ -6,6 +6,7 @@ import Logo from '../components/Logo/Logo'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import BaseBg from '../components/BaseBg'
+import { getAuth } from 'firebase/auth'
 
 
 const index = () => {
@@ -21,6 +22,20 @@ const index = () => {
   // }, [])
 
   function loga(dados) {
+    // const email = dados.email
+    // const password = dados.password 
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+    //     if (user){
+    //       push('/menu')
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //   });
+
     push('/menu')
   }
 
@@ -58,11 +73,11 @@ const index = () => {
                   <div class="mb-8 flex flex-col items-center">
                     <span class="text-gray-300 text-center pb-2">Entre com seu E-mail</span>
                     <div class="mb-14 text-lg">
-                      <input class="rounded-3xl border-none bg-[#000AFF] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="id@email.com" {...register('name')} />
+                      <input class="rounded-3xl border-none bg-[#000AFF] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" name="name" placeholder="id@email.com" {...register('email')} />
                     </div>
 
                     <div class="mb-14 text-lg">
-                      <input class="rounded-3xl border-none bg-[#000AFF] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" placeholder="*********" {...register('dataBegin')} />
+                      <input class="rounded-3xl border-none bg-[#000AFF] bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" placeholder="*********" {...register('password')} />
                     </div>
 
                     <div class="flex justify-center text-lg text-black">

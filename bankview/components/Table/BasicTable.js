@@ -6,7 +6,7 @@ const BasicTable = (props) => {
       <div class="overflow-x-auto shadow-md sm:rounded-lg">
         <div class="inline-block min-w-full align-middle">
           <div class="overflow-hidden ">
-            <table class="min-w-full divide-y opacity-100	 table-fixed ">
+            <table class="min-w-full divide-y opacity-100	table-fixed ">
               {props.children}
             </table>
           </div>
