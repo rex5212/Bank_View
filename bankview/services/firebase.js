@@ -1,6 +1,6 @@
 import { initializeApp, getApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-
+import { getAuth } from "firebase/auth";
 
 let app
 try {
@@ -20,5 +20,6 @@ try {
 }
 
 const db = getDatabase(app)
+const auth = getAuth(app)
 
-export { db }
+export { db, auth }

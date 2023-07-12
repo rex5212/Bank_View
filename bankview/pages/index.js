@@ -6,7 +6,6 @@ import Logo from '../components/Logo/Logo'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import BaseBg from '../components/BaseBg'
-import { getAuth } from 'firebase/auth'
 
 
 const index = () => {
@@ -22,20 +21,6 @@ const index = () => {
   // }, [])
 
   function loga(dados) {
-    // const email = dados.email
-    // const password = dados.password 
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     if (user){
-    //       push('/menu')
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //   });
-
     push('/menu')
   }
 
